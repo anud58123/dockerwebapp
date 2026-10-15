@@ -1,26 +1,18 @@
-version: "3.9"
-
+---
 services:
   devopsdb:
-    image: shaikmustafa/flm-oct:db
+    container_name: cont-1
+    image: devopsdb:v1
     ports:
-      - "3306:3306"
-    deploy:
-      replicas: 1
-    networks:
-      - mynetwork
-
-  application:
-    image: shaikmustafa/flm-oct:javaapp
+      - '1111:3306'
+    volumes:
+      - uservol:/var/lib/mysql/
+    environments:
+      MY_SQL_ROOT_PASSWORD: 'devopspassword'
+  my-app:
+    container-name: cont-2
+    image: myimage:v1
     ports:
-      - "1111:8080"
-    deploy:
-      replicas: 3
-    depends_on:
-      - devopsdb
-    networks:
-      - mynetwork
-
-networks:
-  mynetwork:
-    driver: overlay
+      - '1112:8080'
+volumes:
+  uservol:
