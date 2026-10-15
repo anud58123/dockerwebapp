@@ -7,7 +7,7 @@ services:
       - '1111:3306'
     volumes:
       - uservol:/var/lib/mysql/
-    environments:
+    environment:
       MYSQL_ROOT_PASSWORD: 'devopspassword'
   my-app:
     container-name: cont-2
