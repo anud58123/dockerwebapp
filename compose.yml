@@ -2,7 +2,7 @@
 services:
   devopsdb:
     container_name: cont-1
-    image: devopsdb:v1
+    image: dbimage
     ports:
       - '1111:3306'
     volumes:
@@ -11,7 +11,7 @@ services:
       MYSQL_ROOT_PASSWORD: 'devopspassword'
   my-app:
     container_name: cont-2
-    image: myimage:v1
+    image: appimage
     ports:
       - '1112:8080'
     depends_on:
