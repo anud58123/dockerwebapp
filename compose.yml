@@ -10,7 +10,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 'devopspassword'
   my-app:
-    container-name: cont-2
+    container_name: cont-2
     image: myimage:v1
     ports:
       - '1112:8080'
